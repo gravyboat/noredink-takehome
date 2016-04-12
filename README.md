@@ -51,4 +51,3 @@ Choose any or all of the following, time permitting:
 * If you're about to begin, and you think to yourself: "I think I should use rails!" then you should know that nobody who has ever gone down that rabbit hole has ever succeeded. THERE BE DHHRAGONS!
 
 -[Good luck!](https://s3-us-west-2.amazonaws.com/static.noredink.com/stan-carey-doge-meme-wow-such-win-because-grammar-so-amaze-much-usage-very-language.jpg)
-
