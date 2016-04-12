@@ -31,17 +31,16 @@ def pull_csv_data(num_questions):
     last_pick = random.choice([1, 2]) # Set a value on last pick randomly.
 
     for num in range(num_questions):
-        # set the pick to random to begin with        
+        # Set the pick to random to begin with.
         picked_question = (random.sample(strand_question_dict, 1))
-        # Use a while loop to ensure we don't pick the same strand value
-        # Note that this could
+        # Use a while loop to ensure we don't pick the same strand value.
         while strand_question_dict[picked_question[0]] == last_pick:
             picked_question = (random.sample(strand_question_dict, 1))
-        # Assign our last_pick value so we avoid strand repetition
+        # Assign our last_pick value so we avoid strand repetition.
         last_pick = strand_question_dict[picked_question[0]]
         assigned_question_id.append(picked_question)
         
-        #Missing the standard matching an equal number of times.
+        # Missing the standard matching an equal number of times.
 
     print("please complete the following questions:")
     for question in assigned_question_id:
