@@ -4,22 +4,21 @@ import csv
 import random
 
 def user_question_prompt():
-    # prompt user for how many questions they want in the quiz,
-    # accept anything more than 0, pass back out.
+    # Prompt user for how many questions they want in the quiz,
+    # Accept anything more than 0, pass back out.
 
     question_count = int(raw_input("Please input the number of questions you would like to answer: "))
+    # Should probably consider fixing the above to handle non int values.
     if question_count == 0:
-        print("0 is not sadly not accepted!")
+        print("Sadly 0 is not accepted!")
         user_question_prompt()
-    elif question_count == 1:
-        print("Thanks! I'm putting together {0} question now.".format(question_count))
     else:
-        print("Thanks! I'm putting together {0} questions now.".format(question_count))
+        print("Thanks! I'm putting together {0} question(s) now.".format(question_count))
     return(question_count)
 
 
 def pull_csv_data(num_questions):
-# Display question IDs based on strand values
+# Display question IDs based on strand values.
 
     assigned_question_id = []
     strand_question_dict = {}
@@ -28,21 +27,25 @@ def pull_csv_data(num_questions):
         questions_reader = csv.DictReader(csv_questions)
         for row in questions_reader:
             strand_question_dict['question ' + row['question_id']] = row['strand_id']
-    print(strand_question_dict)
 
-    last_pick = 0 #set a value on last pick, doesn't really matter what int.
+    last_pick = random.choice([1, 2]) # Set a value on last pick randomly.
 
     for num in range(num_questions):
-        
+        # set the pick to random to begin with        
         picked_question = (random.sample(strand_question_dict, 1))
+        # Use a while loop to ensure we don't pick the same strand value
+        # Note that this could
         while strand_question_dict[picked_question[0]] == last_pick:
             picked_question = (random.sample(strand_question_dict, 1))
+        # Assign our last_pick value so we avoid strand repetition
         last_pick = strand_question_dict[picked_question[0]]
         assigned_question_id.append(picked_question)
+        
+        #Missing the standard matching an equal number of times.
 
-
-
-    print(assigned_question_id)
+    print("please complete the following questions:")
+    for question in assigned_question_id:
+        print(question[0])
 
 '''
 # This seciont will be for bonus requirements if we make it there.
@@ -50,6 +53,7 @@ def pull_csv_data(num_questions):
     with open('usage.csv', 'rb') as csv_usage:
         usage_reader = csv.DictReader(csv_usage)
 '''
-    
+
+
 num_questions = user_question_prompt()
 pull_csv_data(num_questions)
