@@ -47,7 +47,7 @@ def pull_csv_data(num_questions):
         print(question[0])
 
 '''
-    # This seciont will be for bonus requirements if we make it there.
+    # This section will be for bonus requirements if we make it there.
 
     with open('usage.csv', 'rb') as csv_usage:
         usage_reader = csv.DictReader(csv_usage)
