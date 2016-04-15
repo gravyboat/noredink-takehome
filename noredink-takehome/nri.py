@@ -4,8 +4,10 @@ import csv
 import random
 
 def user_question_prompt():
-    # Prompt user for how many questions they want in the quiz,
-    # Accept anything more than 0, pass back out.
+    """
+    Prompt user for how many questions they want in the quiz,
+    Accept anything more than 0, pass back out.
+    """
 
     question_count = int(raw_input("Please input the number of questions you would like to answer: "))
     # Should probably consider fixing the above to handle non int values.
@@ -18,7 +20,7 @@ def user_question_prompt():
 
 
 def pull_csv_data(num_questions):
-    # Display question IDs based on strand values.
+    """Display question IDs based on strand values."""
 
     assigned_question_id = []
     strand_question_dict = {}
